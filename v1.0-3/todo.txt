@@ -1,0 +1,124 @@
+----
+don't use columns in their raw content
+
+
+April 2
+
+- remove spurious do-ends in my files
+- write a discretizerir
+- make row ids constraint across sub tables
+- make distance caching an option you can disable
+
+==============
+
+make xy just spit back xy pairs
+
+let sample place them into tables
+
+
+make everything iterators of tables
+
+active elarning
+
+des on nb
+
+have to wait for first none "_" in samles
+
+
+# magic
+
+rationality:
+
++ Watching the most data I can
++ While change my mind the least, and do it least often.
+
+So ignoring new data is irrational. And watching too much
+is overwhelming (so we'll need some tricks to sanely
+sample subsets of new information).
+
+And changing your mind with every new whim or fad is
+irrational-- new ideas required a solid foundation.
+
+And making big changes to your current ideas is less
+desirable than finding the smallest tweaks that most
+accomodate new information.
+
+Still, sometimes, when the data demands in, the
+_least_ required change might still be massive. But
+mass disruption should be your last resort, not your
+first.
+
+To me, rationality is like living on an ice flow.
+Sometimes you can find large and solid chunks of ice
+that last a long time where you can raise fine
+igloos and fine families and spend happy days
+watching the world float by while everyone feast on the fish
+you catch near your lovely mobile home.  But don't
+get complancent- you always need to watch what's
+going on under your feet and all around you.
+Sometimes, you're going have to do some jumping
+around-- that's life, get used to it.
+
+From an engineering perspective, the above means that I do not
+learn once, then stop. Rather, I float down a data stream constantly
+checking if old ideas still hold.
+
+=======
+not sure a stats-oriented view of data mining notices all the minimality and locality effects in real-wrld data sets
+
+i'm am rational if i watch for the last changes,
+made least often, to imrpove my world
+
+deep learning, spark, hadoop tell us soemthing about
+big data, scalabiltiy, about handling vast amoungt
+sof unstruture data. they tell us nothing about
+human cognition or how to act as better scientists
+or better rational people in our day to day life.
+they tell us nothing on how to update and improve on
+cetury old debates on philisophy of knowledge. they
+don't help you tomorrow on deciding how to buya
+shirt.
+
+many many books saying hey learning is possible but
+nothing that really tounches on the magic of
+learning-- how it can eveen possible in the first
+place-- what it is telling us about human cognitiona
+nd agents reasoning in the world-- and how tcurrent
+results might isnpire new generations of learners
+and even a reconceputalization ofwhat it measn to be
+rational.
+
+lets start with that last point-- rationality. many
+definitons of that but for me it has two parts:
+
++ knowing that your going to have your change your
+mind about the reasons about why you are do what you do
+
++ knowing how to critically review new data such
+that you don't change your mind too early or too
+late.
+
+So rationality is streaming over new data, and
+recongizing something curious enough to stare at
+twice.
+
+Most learners do not stream over data. They do not
+disucuss when (and when not) to update old beliefs
+with new information. So the core of a rational learner
+is
+
+(1) input new records
+(2) think, poke around, collect new insights
+(3) alert about any anomalies, maybe revise old ideas
+(4) go to 1
+
+now it turns out this is not hard to do. iamginne a self-initilazing "table" object that
+when you throw rows of data at it, it incremnetally updates itself. if this table is doing
+predictions, it might fork sub-tables of rows relating to different things then learn
+models from those differences.
+
+now lets run that table in "eras" of (say) 100 records at a time (or 1000 or 1000000 or whatever is
+a number that makes sense in your domain. Lets make predictions on the next era using data collected
+from the last era. 
+
+now take that same structure but have 10 tables. 

@@ -1,0 +1,61 @@
+# -*- sh -*-
+
+alias ls='ls -G'
+
+export ZDot="$(pwd)/etc/dotemacs"
+export LESS='-R'
+export LESSOPEN='|$Here/etc/lessfilter %s'
+
+reset() {
+  . $Here/demos.sh
+}
+e() {
+    /Applications/Emacs.app/Contents/MacOS/Emacs -q -l "$ZDot" $* &
+}
+fake() {
+  root=$(git rev-parse --show-toplevel)
+  if [ -n "$root" ]; then
+    ( cd $root; fake1 $*)
+  else
+    /usr/bin/make $*
+  fi
+}
+fake1() {
+    if [ -f Makefile ]; then
+        /usr/bin/make $*
+        return 0
+    fi
+    if [ -f make.mk ]; then
+        /usr/bin/make -f make.mk $*
+        return 0
+    fi
+    echo "nothing to do"
+}
+here() {
+    cd $1; basename $PWD;
+}
+PROMPT_COMMAND='echo  -ne "Miner:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1="$(here ../..)/$(here ..)/$(here .) \!> "'
+cat <<'EOF'
+
+ +                       |  Lua Miner v1.03                  
+        _.--"~~ __"-.  . |  https://github.com/timm/luamine       
+ .   ,-"     .-~  ~"-\     
+   .^       /       ( )  |  A little Lua goes a long way.
+  /    .  Y                    
+ /      \_j       .      | "I tread paths by moonlight that 
+Y     ( --l__            |  others fear to speak of during day." 
+|            "-.         | -- Rothfuss                   
+|      (___     \             
+|        .)~-.__/    .    
+l        _)                
+ \      "l                
+  \       \        +       
+   \       ^.             
++   ^.       "-.          
+ .    "-.__     ~-.___,    
+           "--.._____.^    
+                         
+                -Row     
+
+EOF
+reset
